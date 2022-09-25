@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct AdditionalContactRowView: View {
-    let contact: Person
+    let image: String
+    let contactInfo: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
-                Image(systemName: "person.text.rectangle.fill")
-                Text(contact.email)
-            }
-            HStack {
-                Image(systemName: "phone.arrow.up.right.fill")
-                Text(contact.phone)
+                Image(systemName: image)
+                Text(contactInfo)
             }
         }
     }
@@ -26,6 +23,6 @@ struct AdditionalContactRowView: View {
 
 struct AdditionalContactRowView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionalContactRowView(contact: Person.getPerson())
+        AdditionalContactRowView(image: "phone.fill", contactInfo: "email")
     }
 }

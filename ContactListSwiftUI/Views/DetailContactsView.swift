@@ -12,13 +12,16 @@ struct DetailContactsView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Text(contact.fullname)
-                .font(.largeTitle)
-            Text(contact.phone)
-            Text(contact.email)
-            Spacer()
+            Image(systemName: "person.fill")
+                .resizable()
+                .frame(width: 100, height: 100)
+            List {
+                Label(contact.phone, systemImage: "phone.fill")
+                Label(contact.email, systemImage: "mail.fill")
+            }
         }
-        .navigationTitle("Details")
+        .navigationTitle(contact.fullname)
+        .listStyle(.plain)
         .font(.headline)
         .padding()
     }
@@ -26,6 +29,6 @@ struct DetailContactsView: View {
 
 struct DetailContactsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailContactsView(contact: Person.getPerson())
+        DetailContactsView(contact: Person.getContacts().first!)
     }
 }

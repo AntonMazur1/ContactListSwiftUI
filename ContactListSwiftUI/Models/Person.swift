@@ -17,10 +17,6 @@ struct Person: Hashable {
         name + " " + secondName
     }
     
-    static func getPerson() -> Person {
-        Person(name: "Ivan", secondName: "Budko", phone: "+901323", email: "ivan@gmail.com")
-    }
-    
     static func getContacts() -> [Person] {
         var persons: [Person] = []
         

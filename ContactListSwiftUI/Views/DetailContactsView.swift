@@ -11,19 +11,20 @@ struct DetailContactsView: View {
     let contact: Person
     
     var body: some View {
-        VStack(alignment: .center) {
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 100, height: 100)
-            List {
-                Label(contact.phone, systemImage: "phone.fill")
-                Label(contact.email, systemImage: "mail.fill")
+        List {
+            HStack {
+                Spacer()
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .padding()
+                Spacer()
             }
+            Label(contact.phone, systemImage: "phone.fill")
+            Label(contact.email, systemImage: "mail.fill")
         }
         .navigationTitle(contact.fullname)
-        .listStyle(.plain)
         .font(.headline)
-        .padding()
     }
 }
 
